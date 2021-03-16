@@ -101,6 +101,4 @@ $ pytest
 $ python manage.py runserver
 ```
 #### Access Home Page
-```
-$ localhost:8000
-```
+http://localhost:8000
