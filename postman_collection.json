@@ -1,0 +1,196 @@
+{
+	"info": {
+		"_postman_id": "cc73c8dd-1e70-4ed6-9046-b5a3f9d86b7c",
+		"name": "filed.com",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var xsrfCookie = postman.getResponseCookie(\"csrftoken\"); ",
+							"postman.setEnvironmentVariable('csrftoken', xsrfCookie.value);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-CSRFToken",
+						"value": "{{csrftoken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"audioFileType\": \"podcast\",\n    \"audioFileMetadata\": {\n        \"name\": \"test_song\",\n        \"duration\": 500,\n        \"title\": \"test_audiobook\",\n        \"author\": \"test_author\",\n        \"narrator\": \"narrator_text\",\n        \"host\": \"test_host\",\n        \"participants\": [\n            \"One\",\n            \"Two\",\n            \"Three\",\n            \"Four\",\n            \"Five\",\n            \"Six\",\n            \"Seven\",\n            \"Eight\",\n            \"Nine\",\n            \"Ten\"\n        ]\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/server/create/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"server",
+						"create",
+						""
+					]
+				},
+				"description": "End Point   : /server/create/\nParameters  : Below dictionary\n{\n        audioFileType': 'song|podcast|audiobook'\n        'audioFileMetadata' : {\n            'name': 'string',\n            'duration': integer\n        }\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var xsrfCookie = postman.getResponseCookie(\"csrftoken\"); ",
+							"postman.setEnvironmentVariable('csrftoken', xsrfCookie.value);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-CSRFToken",
+						"value": "{{csrftoken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"audioFileMetadata\": {\n        \"name\": \"song\",\n        \"duration\": 500\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/server/update/audiobook/1/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"server",
+						"update",
+						"audiobook",
+						"1",
+						""
+					]
+				},
+				"description": "End Point   : /server/update/<song|podcast|audiobook>/<audioFileID>\nParameters  : Below dictionary\n{\n        'audioFileMetadata' : {\n            'name': 'string',\n            'duration': integer\n        }\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "get",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var xsrfCookie = postman.getResponseCookie(\"csrftoken\"); ",
+							"postman.setEnvironmentVariable('csrftoken', xsrfCookie.value);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/server/get/audiobook/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"server",
+						"get",
+						"audiobook",
+						""
+					]
+				},
+				"description": "End Point   : /server/get/<audioFileType>/[<audioFileID]/\nParameters  : None"
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var xsrfCookie = postman.getResponseCookie(\"csrftoken\"); ",
+							"postman.setEnvironmentVariable('csrftoken', xsrfCookie.value);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/server/delete/song/2/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"server",
+						"delete",
+						"song",
+						"2",
+						""
+					]
+				},
+				"description": "End Point   : /server/get/<audioFileType>/[<audioFileID]/\nParameters  : None"
+			},
+			"response": []
+		}
+	]
+}
