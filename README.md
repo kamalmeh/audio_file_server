@@ -100,4 +100,7 @@ $ pytest
 ```
 $ python manage.py runserver
 ```
-#### 
+#### Access Home Page
+```
+$ localhost:8000
+```
